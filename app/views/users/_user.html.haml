@@ -1,0 +1,6 @@
+%tr
+  %td= user.name
+  %td= user.admin?
+  %td
+    = link_to 'edit', edit_resource_path(user)
+    = link_to 'delete', resource_path(user), :confirm => 'really delete?', :method => :delete
