@@ -1,6 +1,7 @@
 class Group < ActiveRecord::Base
   
   belongs_to :course
+  belongs_to :project
   has_many :users
   
   validates :name,

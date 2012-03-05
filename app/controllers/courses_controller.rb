@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   
-  before_filter :authenticate_admin!
+  before_filter :authenticate_user!
   
   inherit_resources
   

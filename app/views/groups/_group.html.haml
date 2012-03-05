@@ -1,3 +1,5 @@
 %tr
   %td= group.name
-  %td.numeric= link_to group.users.count, users_path(:group_id => group)
+  %td= user_list group.users
+  - if admin?
+    %td= link_to 'delete', resource_path(group), :method => :delete, :confirm => 'really delete?'

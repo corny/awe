@@ -1,6 +1,7 @@
 %h2= @page_title = 'Courses'
 
-%p= link_to "add course", new_resource_path
+- if admin?
+  %p= link_to "add course", new_resource_path
 
 %table
   %thead

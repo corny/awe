@@ -24,7 +24,7 @@ end
   8.times do
     course.projects.create! \
       name:        Faker::Name.name,
-      description: Faker::Lorem.paragraphs(3).join("\n")
+      description: 4.times.map{ Faker::Lorem.paragraph(5+rand(10)) }.join("\n\n")
   end
   
   # assign users to course
@@ -35,14 +35,12 @@ end
   
   # create groups
   6.times do |i|
-    group = course.groups.create! \
-      name: "g#{i}"
+    group = course.groups.create_with_users \
+      sprintf('%02d', i+1 ),
+      course.users.without_group.limit(2)
     
-    # assign users to groups
-    course.users.without_group.limit(2).each do |user|
-      user.group = group
-      user.save!
-    end
+    group.project = course.projects[i]
+    group.save!
   end
   
 end

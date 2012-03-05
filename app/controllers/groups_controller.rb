@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   
-  before_filter :authenticate_admin!
+  before_filter :authenticate_admin!, :except => [:index, :show]
   
   inherit_resources
   belongs_to :course

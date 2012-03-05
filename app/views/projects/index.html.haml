@@ -1,11 +1,9 @@
-%h2= @page_title = 'Projects'
+%h2
+  = link_to parent.name, parent
+  \/
+  = @page_title = 'Projects'
 
-= link_to "add project", new_resource_path
+- if admin?
+  %p= link_to "add project", new_resource_path
 
-%table
-  %thead
-    %th Name
-    %th Group
-    %th
-  %tbody
-    = render collection
+= render collection

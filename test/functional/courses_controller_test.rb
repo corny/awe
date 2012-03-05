@@ -1,24 +1,24 @@
 require 'test_helper'
 
-class StaticControllerTest < ActionController::TestCase
+class CoursesControllerTest < ActionController::TestCase
   
-  should route(:get, "/").to(:controller=> :static, :action => :home)
+  should route(:get, "/courses").to(:controller=> :courses, :action => :index)
   
-  context 'StaticController' do
-    context 'on GET to home' do
+  context 'CoursesController' do
+    context 'on GET to index' do
       context 'not signed in' do
         setup do
-          get :home
+          get :index
         end
         
-        should respond_with :success
+        should respond_with :redirect
       end
       
       context 'signed in' do
         setup do
           @user = Factory :user
           sign_in @user
-          get :home
+          get :index
         end
         
         should respond_with :success

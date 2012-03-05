@@ -1,6 +1,19 @@
-%tr
-  %td= project.name
-  %td= project.group ? link_to(project.group.name, [parent, project.group]) : '-'
-  %td
-    = link_to 'edit', edit_resource_path(project)
-    = link_to 'delete', resource_path(project), :confirm => 'really delete?', :method => :delete
+%section
+  %h3= link_to project.name, [parent, project]
+  
+  %p
+    = truncate project.description, :length => 180, :separator => '. '
+    = link_to 'more', [parent, project]
+
+  %p
+    Group:
+    - if project.group
+      = project.group.name
+      (#{user_list project.group.users})
+    - else
+      \-
+  
+  - if admin?
+    %p
+      = link_to 'edit', edit_resource_path(project)
+      = link_to 'delete', resource_path(project), :confirm => 'really delete?', :method => :delete

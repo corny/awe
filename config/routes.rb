@@ -8,6 +8,6 @@ Awemgmt::Application.routes.draw do
     resources :projects
   end
   
-  root :to => 'static#home'
+  root :to => 'courses#index'
   
 end

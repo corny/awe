@@ -1,9 +1,12 @@
+Factory.sequence :email do |n|
+  "user#{n}@example.com"
+end
+
 FactoryGirl.define do
   factory :user do
-    name = Faker::Name.name
-    name         Faker::Name.name
-    email        Faker::Internet.email
-    identity_url 'openid.tzi.org/' << name.downcase.gsub(/\W/,'_')
+    name         { Faker::Name.name }
+    email        { Factory.next :email }
+    identity_url { 'openid.tzi.org/' << email.split("@").first }
   end
 
   factory :admin, :parent => :user do

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   belongs_to :course
   belongs_to :group
   
+  default_scope :order => :name
+  
   scope :without_course, where(:course_id => nil)
   scope :without_group, where(:group_id => nil)
   

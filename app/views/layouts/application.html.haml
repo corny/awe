@@ -2,12 +2,15 @@
 %html
   %head
     %title #{@page_title} | AWE Mgmt
-    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Leckerli+One'
+    = stylesheet_link_tag 'application', :media => "all"
     = csrf_meta_tags
   %body
     %header
+      = render :partial => '/shared/session'
+      %h1= link_to 'AWE Mgmt', :root
       = render :partial => '/shared/navigation'
-    %h1 AWE Mgmt
+    
     = flash_messages
     %section= yield
     = javascript_include_tag "application"
