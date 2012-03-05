@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   
   inherit_resources
   
+  has_scope \
+    :search,
+    :matriculation,
+    :course_id
+  
   with_role :admin
   
 end

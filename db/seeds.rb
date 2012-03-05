@@ -10,7 +10,8 @@ User.create!({:name => "Admin", :admin => true, :email => 'admin@example.com', :
   User.create! \
     name:         name,
     email:        Faker::Internet.email,
-    identity_url: 'openid.example.com/' + name.downcase.gsub(/\W/,'_')
+    identity_url: 'openid.example.com/' + name.downcase.gsub(/\W/,'_'),
+    matriculation: 100000 + rand(300000)
 end
 
 # create courses

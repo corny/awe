@@ -1,10 +1,12 @@
 %h2 Users
 
+= render :partial => 'filter'
+
 %table
   %thead
     %th Name
     %th Course
-    %th Name
+    %th Group
     %th Admin
   %tbody
     = render collection

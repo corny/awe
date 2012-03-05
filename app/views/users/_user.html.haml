@@ -1,5 +1,5 @@
 %tr
-  %td= user.name
+  %td= highlight user.name, params[:search]
   %td= user.course ? link_to(user.course.name, user.course) : '-'
   %td= user.group  ? user.group.name  : '-'
   %td= user.admin?

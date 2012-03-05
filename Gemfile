@@ -18,7 +18,10 @@ end
 
 gem 'haml'
 gem 'jquery-rails'
+
 gem 'inherited_resources'
+gem 'has_scope'
+
 gem 'formtastic'
 
 # Authentication

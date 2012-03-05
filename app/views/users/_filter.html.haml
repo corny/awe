@@ -1,0 +1,10 @@
+%form.filter
+  %span
+    = text_field_tag :search, params[:search], :placeholder => 'Name'
+  %span
+    = text_field_tag :matriculation, params[:matriculation], :size => 7, :placeholder => 'Matriculation'
+  %span
+    Course
+    = select_tag :course_id, options_for_select([nil] + Course.all.map{|c| [c.name, c.id] }, params[:course_id])
+  
+  = submit_tag 'Show', :name => nil

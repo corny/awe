@@ -165,6 +165,7 @@ DEPENDENCIES
   foreigner
   formtastic
   haml
+  has_scope
   inherited_resources
   jquery-rails
   pg

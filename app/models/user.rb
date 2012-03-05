@@ -6,7 +6,11 @@ class User < ActiveRecord::Base
   scope :without_course, where(:course_id => nil)
   scope :without_group, where(:group_id => nil)
   
-
+  # Search in name
+  scope :search, ->(term) { where "name ILIKE ?", "%" << term << "%" }
+  scope :matriculation, ->(number) { where :matriculation => number }
+  scope :course_id, ->(id) { where :course_id => id }
+  
   devise :openid_authenticatable
 
 # attr_accessible :role, :as => :admin
