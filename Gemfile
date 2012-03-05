@@ -1,5 +1,5 @@
-#source 'https://rubygems.org'
-source 'https://production.cf.rubygems.org'
+source 'https://rubygems.org'
+#source 'https://production.cf.rubygems.org'
 
 gem 'rails', '~> 3.2.2'
 
@@ -18,6 +18,15 @@ gem 'jquery-rails'
 # Authentication
 gem 'devise'
 gem 'omniauth-openid'
+
+group :test do
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'shoulda-context'
+  
+  gem "factory_girl_rails", "~> 1.7.0"
+  gem "faker", "~> 1.0"
+end
 
 # unicorn for performance and concurrency in heroku's free plan.
 gem 'unicorn'
