@@ -6,15 +6,17 @@ module User::Authentication
   end
   
   module ClassMethods
-    def find_for_open_id(access_token, signed_in_resource=nil)
-      data = access_token.info
+    def find_for_open_id(access_token, params, signed_in_resource=nil)
+      token = access_token.info
+      logger.debug token.to_hash
 
-      Rails.logger.debug data.to_hash
-
-      if user = User.where(email: data['email']).first
+      if user = User.where(email: token['email']).first
         user
       else
-        User.create!(email: data['email'], name: data['name'])
+        User.create! \
+          email: token['email'],
+          name: token['name'],
+          openid_url: params['openid_url']
       end
     end
   end
