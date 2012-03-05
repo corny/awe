@@ -17,7 +17,7 @@ gem 'jquery-rails'
 
 # Authentication
 gem 'devise'
-gem 'omniauth-openid'
+gem 'devise_openid_authenticatable'
 
 # unicorn for performance and concurrency in heroku's free plan.
 gem 'unicorn'

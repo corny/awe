@@ -7,5 +7,6 @@
 
 - else
   %h2 OpenID Login
-  = form_tag user_omniauth_authorize_path(:open_id), :method => :get do
-    = text_field_tag :openid_url, 'openid.tzi.org/'
+  = form_for :user, :url => user_session_path do |f|
+    = f.text_field :identity_url, value: 'openid.tzi.org/'
+    = f.submit "Sign in"

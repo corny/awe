@@ -15,12 +15,15 @@ ActiveRecord::Schema.define(:version => 20120305101942) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "email",      :null => false
-    t.string   "openid_url", :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "email"
+    t.string   "identity_url"
+    t.integer  "matriculation"
+    t.string   "degree_program"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["identity_url"], :name => "index_users_on_identity_url", :unique => true
 
 end
