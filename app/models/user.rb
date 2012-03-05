@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   devise :openid_authenticatable
 
+# attr_accessible :role, :as => :admin
+
   def self.build_from_identity_url(identity_url)
     User.new(identity_url: identity_url)
   end

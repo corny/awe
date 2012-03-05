@@ -6,6 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :identity_url
       t.integer :matriculation
       t.string :degree_program
+      t.boolean :admin, :null => false, :default => false
       t.timestamps :null => false
     end
 
