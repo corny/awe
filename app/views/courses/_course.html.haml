@@ -1,0 +1,5 @@
+%tr
+  %td= link_to course.name, course
+  %td.numeric= link_to course.users.count,    users_path(:course_id => course)
+  %td.numeric= link_to course.groups.count,   [course, :groups]
+  %td.numeric= link_to course.projects.count, [course, :projects]

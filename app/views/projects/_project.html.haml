@@ -1,0 +1,6 @@
+%tr
+  %td= project.name
+  %td= project.group ? link_to(project.group.name, [parent, project.group]) : '-'
+  %td
+    = link_to 'edit', edit_resource_path(project)
+    = link_to 'delete', resource_path(project), :confirm => 'really delete?', :method => :delete

@@ -1,5 +1,12 @@
 class User < ActiveRecord::Base
 
+  belongs_to :course
+  belongs_to :group
+  
+  scope :without_course, where(:course_id => nil)
+  scope :without_group, where(:group_id => nil)
+  
+
   devise :openid_authenticatable
 
 # attr_accessible :role, :as => :admin
@@ -45,5 +52,5 @@ class User < ActiveRecord::Base
       end
     end
   end
-
+  
 end

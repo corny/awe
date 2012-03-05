@@ -1,5 +1,7 @@
 %tr
   %td= user.name
+  %td= user.course ? link_to(user.course.name, user.course) : '-'
+  %td= user.group  ? user.group.name  : '-'
   %td= user.admin?
   %td
     = link_to 'edit', edit_resource_path(user)

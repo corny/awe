@@ -1,0 +1,11 @@
+%h2= @page_title = 'Projects'
+
+= link_to "add project", new_resource_path
+
+%table
+  %thead
+    %th Name
+    %th Group
+    %th
+  %tbody
+    = render collection

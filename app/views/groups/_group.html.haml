@@ -1,0 +1,3 @@
+%tr
+  %td= group.name
+  %td.numeric= link_to group.users.count, users_path(:group_id => group)

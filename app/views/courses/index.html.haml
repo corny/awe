@@ -1,0 +1,12 @@
+%h2= @page_title = 'Courses'
+
+%p= link_to "add course", new_resource_path
+
+%table
+  %thead
+    %th Name
+    %th.numeric Users
+    %th.numeric Groups
+    %th.numeric Projects
+  %tbody
+    = render collection

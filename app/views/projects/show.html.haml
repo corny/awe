@@ -1,0 +1,5 @@
+%h2= @page_title = resource.name
+
+%dl
+  %dt Group:
+  %dd= resource.group ? link_to(resource.group.name [parent, group]) : 'none'

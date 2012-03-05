@@ -1,0 +1,10 @@
+%h2= @page_title = resource.name
+
+%ul
+  %li= link_to "#{resource.users.count} users", users_path(:course_id => resource)
+  %li= link_to "#{resource.groups.count} groups", [resource, :groups]
+  %li= link_to "#{resource.projects.count} projects", [resource, :projects]
+
+%ul
+  %li= link_to 'edit course', edit_resource_path(resource)
+  %li= link_to 'destroy course', resource_path, :method => :delete, :confirm => 'really delete?', :class => 'delete'

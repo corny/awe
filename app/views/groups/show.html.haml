@@ -1,0 +1,6 @@
+%h2= @page_title = resource.name
+
+%ul
+  %li= link_to "#{resource.users.count} users", users_path(:course_id => resource)
+  %li= link_to "#{resource.groups.count} groups", [resource, :groups]
+  %li= link_to "#{resource.projects.count} projects", [resource, :projects]
