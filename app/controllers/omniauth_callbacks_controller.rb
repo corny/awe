@@ -1,0 +1,5 @@
+class OmniauthCallbacksController < ApplicationController
+  
+  
+  
+end
