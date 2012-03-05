@@ -8,8 +8,10 @@ class CreateProjects < ActiveRecord::Migration
     end
     
     change_table :projects do |t|
-      #t.index :course_id
-      t.index [:id, :course_id], :unique => true
+      # required by foreign key constraint
+      t.index [:course_id, :id], :unique => true
+      
+      t.index [:course_id, :name], :unique => true
       t.foreign_key :courses, :dependent => :delete
     end
     

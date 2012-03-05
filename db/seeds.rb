@@ -1,7 +1,7 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 
-# Create Admin
+# Create Admin User
 User.create!({:name => "Admin", :admin => true, :email => 'admin@example.com', :identity_url => 'openid.example.com/'}, :as => :admin)
 
 # Create Users
@@ -18,13 +18,13 @@ end
 %w( 2012 2013 ).each do |year|
   course = Course.create! \
     name:        "AWE #{year}",
-    description: Faker::Lorem.paragraph
+    description: Faker::Lorem.paragraphs(5).join("\n")
   
   # create projects
   8.times do
     course.projects.create! \
       name:        Faker::Name.name,
-      description: Faker::Lorem.paragraph
+      description: Faker::Lorem.paragraphs(3).join("\n")
   end
   
   # assign users to course

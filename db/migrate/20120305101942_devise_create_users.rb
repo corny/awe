@@ -9,8 +9,11 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.boolean :admin, :null => false, :default => false
       t.timestamps :null => false
     end
-
-    add_index :users, :email, :unique => true
-    add_index :users, :identity_url, :unique => true
+    
+    change_table :users do |t|
+      t.index :email, :unique => true
+      t.index :identity_url, :unique => true
+      t.index :matriculation
+    end
   end
 end

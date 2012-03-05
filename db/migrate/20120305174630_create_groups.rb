@@ -8,8 +8,10 @@ class CreateGroups < ActiveRecord::Migration
     end
     
     change_table :groups do |t|
+      # required by foreign key constraint
       t.index [:course_id, :id], :unique => true
-      #t.index [:project_id, :course_id], :unique => true
+      
+      t.index [:course_id, :name], :unique => true
       t.foreign_key :courses, :dependent => :delete
     end
     

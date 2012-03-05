@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20120305185058) do
   end
 
   add_index "groups", ["course_id", "id"], :name => "index_groups_on_course_id_and_id", :unique => true
+  add_index "groups", ["course_id", "name"], :name => "index_groups_on_course_id_and_name", :unique => true
 
   create_table "projects", :force => true do |t|
     t.integer  "course_id",   :null => false
@@ -38,7 +39,8 @@ ActiveRecord::Schema.define(:version => 20120305185058) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "projects", ["id", "course_id"], :name => "index_projects_on_id_and_course_id", :unique => true
+  add_index "projects", ["course_id", "id"], :name => "index_projects_on_course_id_and_id", :unique => true
+  add_index "projects", ["course_id", "name"], :name => "index_projects_on_course_id_and_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20120305185058) do
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["group_id"], :name => "index_users_on_group_id"
   add_index "users", ["identity_url"], :name => "index_users_on_identity_url", :unique => true
+  add_index "users", ["matriculation"], :name => "index_users_on_matriculation"
 
   add_foreign_key "groups", "courses", :name => "groups_course_id_fk", :dependent => :delete
   add_foreign_key "groups", "projects", :name => "groups_project_id_fkey", :dependent => :nullify
