@@ -4,7 +4,7 @@ module FlashHelper
     out = ''
     flash.each do |type, message|
       unless type == :recaptcha_error
-        out << content_tag(:div, content_tag(:p, message), :class => "flash #{type}")
+        out << content_tag(:div, message, :class => "flash #{type}")
       end
     end
     out.html_safe

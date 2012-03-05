@@ -1,7 +1,8 @@
 $(function(){
-  $(".flash").prepend("<button>close</button>");
-  $(".flash button").click(function(){
-    $(this).closest(".flash").fadeOut();
-    $(this).remove();
+  $(".flash").each(function(){
+    var flash = $(this).closest(".flash");
+    window.setTimeout(function(){
+      flash.fadeOut();
+    }, 1500)
   });
 })
