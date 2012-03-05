@@ -1,4 +1,11 @@
-%h1 Home
+%h1 AWE Mgmt
 
-= form_tag user_omniauth_authorize_path(:open_id), :method => :get do
-  = text_field_tag :openid_url
+- if user_signed_in?
+  %h2
+    Welcome,
+    = current_user.name
+
+- else
+  %h2 OpenID Login
+  = form_tag user_omniauth_authorize_path(:open_id), :method => :get do
+    = text_field_tag :openid_url
