@@ -9,7 +9,7 @@ module User::Authentication
     def find_for_open_id(access_token, signed_in_resource=nil)
       data = access_token.info
 
-p     data.to_hash
+      Rails.logger.debug data.to_hash
 
       if user = User.where(email: data['email']).first
         user
