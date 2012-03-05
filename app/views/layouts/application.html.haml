@@ -3,11 +3,11 @@
   %head
     %title #{@page_title} | AWE Mgmt
     = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
     = csrf_meta_tags
   %body
     %header
       = render :partial => '/shared/navigation'
     %h1 AWE Mgmt
     = flash_messages
-    = yield
+    %section= yield
+    = javascript_include_tag "application"
