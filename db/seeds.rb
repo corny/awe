@@ -23,7 +23,7 @@ end
   # create projects
   8.times do
     course.projects.create! \
-      name:        Faker::Name.name,
+      name:        Faker::Address.city,
       description: 4.times.map{ Faker::Lorem.paragraph(5+rand(10)) }.join("\n\n")
   end
   
