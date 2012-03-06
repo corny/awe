@@ -1,4 +1,4 @@
-%h2 Users
+%h2= @page_title ='Users'
 
 = render :partial => 'filter'
 
@@ -7,6 +7,7 @@
     %th Name
     %th Course
     %th Group
+    %th Project
     %th Admin
   %tbody
     = render collection
