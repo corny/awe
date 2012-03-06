@@ -8,4 +8,6 @@ class Project < ActiveRecord::Base
     :presence   => true,
     :uniqueness => { :scope => :course_id, :case_sensitive => false }
   
+  scope :available, where("id NOT IN (SELECT project_id FROM groups)")
+  
 end

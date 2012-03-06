@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   
   belongs_to :course
   belongs_to :group
+  has_one :project, :through => :group
   
   default_scope :order => :name
   

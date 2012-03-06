@@ -35,9 +35,7 @@ end
   
   # create groups
   6.times do |i|
-    group = course.groups.create_with_users \
-      sprintf('%02d', i+1 ),
-      course.users.without_group.limit(2)
+    group = course.groups.create_with_users(course.users.without_group.limit(2))
     
     group.project = course.projects[i]
     group.save!

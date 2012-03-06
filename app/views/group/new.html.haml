@@ -1,0 +1,10 @@
+%h2= @page_title = 'Create a group'
+
+= semantic_form_for Group.new, :url => group_path do |f|
+  
+  = f.inputs do
+    = f.input :project, :collection => Project.available.all, :input_html => {:required => true}
+    = f.input :partner_email, :as => :email, :input_html => {:required => true}
+  = f.actions do
+    = f.action :submit, :button_html => {:disable_with => t(:wait)}
+

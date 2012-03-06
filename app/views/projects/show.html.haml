@@ -2,6 +2,10 @@
 
 = simple_format resource.description
 
-%dl
-  %dt Group:
-  %dd= resource.group ? link_to(resource.group.name [parent, group]) : 'none'
+%p
+  Group:
+  - if resource.group
+    = resource.group.name
+    (#{user_list resource.group.users})
+  - else
+    \-

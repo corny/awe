@@ -1,0 +1,15 @@
+%h2= @page_title = 'My Group'
+
+- if @group
+  %p
+    My Group:
+    = @group.name
+    (#{user_list @group.users})
+  %p
+    My Project:
+    = link_to @group.project.name, [@group.course, @group.project]
+
+- else
+  %p
+    Please
+    = link_to 'create a group', new_group_path

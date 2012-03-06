@@ -15,7 +15,7 @@ class GroupTest < ActiveSupport::TestCase
     setup do
       @course = Factory :course
       @users  = 2.times.map{ Factory :user }
-      @group  = @course.groups.create_with_users("g01",@users)
+      @group  = @course.groups.create_with_users(@users)
     end
     
     should 'have group assigned to course' do
@@ -24,7 +24,7 @@ class GroupTest < ActiveSupport::TestCase
     
     should 'create group' do
       assert !@group.new_record?
-      assert_equal "g01", @group.name
+      assert_equal "01", @group.name
     end
     
     should 'create group with 2 users' do

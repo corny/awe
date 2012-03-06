@@ -13,6 +13,10 @@ class UserTest < ActiveSupport::TestCase
     should have_db_column :group_id
     should have_db_index :course_id
     should have_db_index :group_id
+    
+    should belong_to :course
+    should belong_to :group
+    should have_one :project
   end
 
 end
