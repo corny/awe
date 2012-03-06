@@ -6,6 +6,7 @@
     = stylesheet_link_tag 'application', :media => "all"
     = csrf_meta_tags
   %body
+    = render :partial => '/shared/development_bar' if development_mode?
     %header
       = render :partial => '/shared/session'
       %h1= link_to 'AWE Mgmt', :root

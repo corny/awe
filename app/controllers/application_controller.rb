@@ -1,9 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
+  helper_method :development_mode?
   helper_method :admin?
   
   protected
+  
+  def development_mode?
+    Rails.env.development?
+  end
   
   def admin?
     current_user.try(:admin?)

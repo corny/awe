@@ -6,6 +6,8 @@ class Course < ActiveRecord::Base
   has_many :groups do
     def create_with_users(users, project=nil)
       transaction do
+        raise ArgumentError, "no users given" if users.empty?
+        
         # find free group name
         used_names = select('name').all.map(&:name)
         free_name  = nil

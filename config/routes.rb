@@ -9,6 +9,8 @@ Awemgmt::Application.routes.draw do
     resources :projects
   end
   
+  post '/development/session' => 'sessions#create', :as => :development_session
+  
   resource :group, :controller => 'group', :only => [:show, :new, :create]
   
   root :to => 'courses#index'
