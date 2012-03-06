@@ -1,7 +1,7 @@
 #session
   - if user_signed_in?
-    Eingeloggt als
+    Signed in as
     = current_user.name
-    = link_to 'logout', :destroy_user_session, :method => :delete, :class => 'logout'
+    = link_to 'logout', :destroy_user_session, :method => :delete, :class => 'Sign out'
   - else
-    Nicht eingeloggt
+    Not signed in

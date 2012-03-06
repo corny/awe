@@ -2,4 +2,4 @@
 %h2 OpenID Login
 = form_for :user, :url => user_session_path do |f|
   = f.text_field :identity_url, value: 'openid.tzi.org/'
-  = f.submit 'Login', :disable_with => t(:wait)
+  = f.submit 'Sign in', :disable_with => t(:wait)
