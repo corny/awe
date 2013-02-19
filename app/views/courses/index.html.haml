@@ -1,9 +1,14 @@
+.center.hero-unit
+  %i.icon-lightbulb
+  %h1 AWE 13
+
+
 %h2= @page_title = 'Courses'
 
 - if admin?
-  %p= link_to "add course", new_resource_path
+  %p= add_link "add course", new_resource_path
 
-%table
+%table.table.table-hover
   %thead
     %th Name
     %th.numeric Projects

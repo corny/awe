@@ -1,7 +1,7 @@
-#development_bar
+#development-bar
   DEVELOPMENT MODE
   
-  = form_tag development_session_path do
-    Login as
+  = form_tag development_session_path, class: 'input-prepend input-append' do
+    .add-on Login as
     = select_tag 'user_id', options_for_select([""] + User.all.map{|user| ["#{user.name} (#{user.email})", user.id] })
-    = submit_tag 'Sign in', :disable_with => t(:wait)
+    = button_tag 'Sign in', :disable_with => t(:wait), :class => 'btn'

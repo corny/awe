@@ -1,10 +1,10 @@
 %form.filter
-  %span
+  %div
     = text_field_tag :search, params[:search], :placeholder => 'Name'
-  %span
+  %div
     = text_field_tag :matriculation, params[:matriculation], :size => 7, :placeholder => 'Matriculation'
-  %span
+  %div
     Course
     = select_tag :course_id, options_for_select([nil] + Course.all.map{|c| [c.name, c.id] }, params[:course_id])
-  
-  = submit_tag 'Show', :name => nil
+  %div
+    = submit_tag 'Show', :name => nil, class: 'btn', 'data-disable-with' => 'Searching ...'

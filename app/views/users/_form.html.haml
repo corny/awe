@@ -1,3 +1,12 @@
-= semantic_form_for resource do |f|
-  = f.inputs
-  = f.actions
+= simple_form_for resource, html: {class: 'form-horizontal'} do |f|
+  = f.input :name
+  = f.input :email
+  = f.input :matriculation
+  = f.input :degree_program
+  = f.association :course
+  = f.association :group
+  = f.input :admin
+  
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
+    = link_to 'Cancel', :users, class: 'btn btn-danger'

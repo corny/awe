@@ -9,7 +9,10 @@ class AddGroupToUsers < ActiveRecord::Migration
       t.foreign_key :groups, :dependent => :set_null
     end
     
-    execute "ALTER TABLE users ADD FOREIGN KEY (group_id, course_id) REFERENCES groups (id, course_id) ON DELETE SET NULL"
+    execute "ALTER TABLE users
+             ADD FOREIGN KEY (group_id, course_id)
+             REFERENCES groups (id, course_id)
+             ON DELETE SET NULL"
     
   end
 end

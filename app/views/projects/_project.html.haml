@@ -1,4 +1,10 @@
 %section
+  - if admin?
+    .toolbar-hover.btn-group.pull-right
+      = link_to 'edit', edit_resource_path(project), class: 'btn'
+      = link_to resource_path(project), :confirm => 'really delete?', :method => :delete, class: 'btn', title: 'destroy' do
+        %i.icon-trash
+  
   %h3= link_to project.name, [parent, project]
   
   %p
@@ -12,8 +18,3 @@
       (#{user_list project.group.users})
     - else
       \-
-  
-  - if admin?
-    %p
-      = link_to 'edit', edit_resource_path(project)
-      = link_to 'delete', resource_path(project), :confirm => 'really delete?', :method => :delete

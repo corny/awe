@@ -1,7 +1,14 @@
-#session
+%li.dropdown
   - if user_signed_in?
-    Signed in as
-    = current_user.name
-    = link_to 'logout', :destroy_user_session, :method => :delete, :class => 'Sign out'
+    = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do
+      Signed in as
+      = current_user.name
+      %b.caret
+    %ul.dropdown-menu
+      %li= link_to 'Logout', :destroy_user_session, :method => :delete
   - else
-    Not signed in
+    = link_to '#', class: 'dropdown-toggle', 'data-toggle' => 'dropdown' do
+      Not signed in
+      %b.caret
+    %ul.dropdown-menu
+      %li= link_to 'Sign in', :new_user_session

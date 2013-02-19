@@ -1,0 +1,12 @@
+%header.navbar.navbar-inverse
+  .navbar-inner
+    .container
+      = link_to "AWE 13", :root, class: "brand"
+      %nav
+        %ul.nav
+          %li= link_to 'Courses', :courses
+          %li= link_to 'My Group', :group
+          - if admin?
+            %li= link_to 'Users', :users
+        %ul.nav.pull-right
+          = render partial: 'shared/session'

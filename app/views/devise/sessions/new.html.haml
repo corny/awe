@@ -1,5 +1,6 @@
 
 %h2 OpenID Login
-= form_for :user, :url => user_session_path do |f|
-  = f.text_field :identity_url, value: 'openid.tzi.org/'
-  = f.submit 'Sign in', :disable_with => t(:wait)
+
+= form_for :user, url: user_session_path, html: {class: 'input-append'} do |f|
+  = f.text_field :identity_url, value: 'openid.tzi.org/', autofocus: true
+  = f.submit 'Sign in', disable_with: t(:wait), class: 'btn'

@@ -4,7 +4,7 @@ development: &config
   template: template0
   hostname: localhost
   database: awemgmt
-  username: postgres
+  username: 
   password:
   pool: 5
   timeout: 5000
