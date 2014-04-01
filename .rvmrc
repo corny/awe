@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-rvm --create use 1.9.3@awemgmt
-
